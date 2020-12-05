@@ -1,0 +1,9 @@
+# OSX
+.DS_Store
+
+# sbt, scala, IntelliJ
+target
+.idea
+.settings
+.classpath
+.project

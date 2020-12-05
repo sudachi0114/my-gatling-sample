@@ -11,8 +11,8 @@ scalacOptions := Seq(
 )
 
 libraryDependencies ++= Seq(
-  "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.3.0" % "test",
-  "io.gatling"            % "gatling-test-framework"    % "2.3.0" % "test"
+  "io.gatling"            % "gatling-test-framework"    % "2.3.0" % "test",
+  "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.3.0" % "test"
 )
 
 enablePlugins(GatlingPlugin)

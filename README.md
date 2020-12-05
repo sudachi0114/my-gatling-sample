@@ -51,7 +51,7 @@ addSbtPlugin("io.gatling" % "gatling-sbt" % "2.2.2")
 
 ## Write Test Scenario
 
-```src/test/scala/mytest/MyBasicSimulation
+```src/test/scala/mytest/MyBasicSimulation.scala
 package mytest
 
 import io.gatling.core.Predef._
@@ -87,9 +87,24 @@ docker run --rm -p 8080:80 nginx
 ## execute simulation
 
 ```
+# start sbt
 $ sbt
 sbt:my-gatling-sample> 
 
+# Run all simulations
+> gatling:test
+
+# Run a single simulation
+> gatling:testOnly mytest.MyBasicSimulation
+
+# List all tasks
+> tasks -v gatling
+```
+
+
+* example
+
+```
 sbt:my-gatling-sample> gatling:testOnly mytest.MyBasicSimulation
 ....
 Please open the following file: /Users/sudachi/projects/my-gatling-sample/target/gatling/mybasicsimulation-1607150219812/index.html

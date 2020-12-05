@@ -20,7 +20,7 @@ enablePlugins(GatlingPlugin)
 
 lazy val root = (project in file("."))
   .settings(
-    name := "hello-sbtproject",
+    name := "my-gatling-sample",
     libraryDependencies += scalaTest % Test
   )
 

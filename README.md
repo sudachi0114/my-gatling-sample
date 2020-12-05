@@ -9,12 +9,14 @@ $ sbt new sbt/scala-seed.g8
 ....
 Minimum Scala build.
 
-name [My Something Project]: hello
+name [My Something Project]: my-gatling-sample
 
-Template applied in ./hello
+Template applied in ./my-gatling-sample 
+
 ```
 
 reference: [sbt new](https://www.scala-sbt.org/1.x/docs/ja/Hello.html)
+
 
 ## `build.sbt`
 
@@ -34,8 +36,9 @@ libraryDependencies ++= Seq(
 enablePlugins(GatlingPlugin)
 ```
 
-> gatling-test-framework は Gatling を実行するためのライブラリっぽいですね。
-> gatling-charts-highcharts は HighCharts という JavaScript 製のチャートライブラリをベースにした Gatling 向けのライブラリのようです。結果のレポート表示用だと思います。x
+> gatling-test-framework は Gatling を実行するためのライブラリっぽい
+> gatling-charts-highcharts は HighCharts という JavaScript 製のチャートライブラリをベースにした Gatling 向けのライブラリのようです。結果のレポート表示用だと思います。
+
 
 ## `plugins.sbt`
 
@@ -45,7 +48,8 @@ enablePlugins(GatlingPlugin)
 addSbtPlugin("io.gatling" % "gatling-sbt" % "2.2.2")
 ```
 
-## write Test Screnario
+
+## Write Test Scenario
 
 ```src/test/scala/mytest/MyBasicSimulation
 package mytest
@@ -70,7 +74,7 @@ class MyBasicSimulation extends Simulation {
 }
 ```
 
-ここでは、http://localhost:8080 にアクセスしてみる。
+上記では、テスト対象のアプリケーションが、http://localhost:8080 に起動していることとしています。
 
 ここでは ~~テキトーに~~ nginx サーバでも立てて実験してみることにします。
 シミュレーションとしては「この nginx サーバの root (`/`) に、ユーザが1人がアクセスしてくるだけ」という簡易的なものです。
@@ -79,26 +83,29 @@ class MyBasicSimulation extends Simulation {
 docker run --rm -p 8080:80 nginx 
 ```
 
+
 ## execute simulation
 
 ```
 $ sbt
-sbt:hello-sbtproject> 
+sbt:my-gatling-sample> 
 
-sbt:hello-sbtproject> gatling:testOnly mytest.MyBasicSimulation
+sbt:my-gatling-sample> gatling:testOnly mytest.MyBasicSimulation
 ....
-Please open the following file: /Users/sudachi/projects/hello-sbtproject/target/gatling/mybasicsimulation-1607150219812/index.html
+Please open the following file: /Users/sudachi/projects/my-gatling-sample/target/gatling/mybasicsimulation-1607150219812/index.html
 [info] Simulation MyBasicSimulation successful.
 [info] Simulation(s) execution ended.
 [success] Total time: 11 s, completed 2020/12/05 15:37:06
 ```
 
-## Test report 
 
-see `target/gatling`
+## View Test Report 
+
+see `target/gatling` (の最新のヤツ...)
 
 
-## Use 
+
+## Use Giter8
 
 > You can use our Giter8 template to bootstrap a new sbt project:
 
@@ -107,6 +114,8 @@ sbt new gatling/gatling.g8
 ```
 
 * [GITER8 TEMPLATE](https://gatling.io/docs/current/extensions/giter8_template/#g8-template)
+
+
 
 ## Links
 
